@@ -1,40 +1,41 @@
-body{
+body {
     background-color: blanchedalmond;
     font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 1.6;
 }
 
-header{
+header {
     background-color: aqua;
 }
 
-.header-container{
-    display:flex;
-    justify-content:space-between;
+.header-container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding:10px;
+    padding: 10px;
 }
 
-nav ul{
+nav ul {
     display: flex;
     gap: 20px;
-    list-style:none;
+    list-style: none;
 }
 
-nav a{
+nav a {
     text-decoration: none;
 }
 
-nav a:hover{
-    color:gold;
+nav a:hover {
+    color: gold;
 }
 
-h1,h2{
+h1,
+h2 {
     color: blue;
     width: fit-content;
 }
 
-main{
+main {
     max-width: 1100px;
     margin: 2rem auto;
     padding: 2rem;
@@ -44,7 +45,7 @@ main{
 .project-container,
 .skills-container,
 .contact-container,
-.education-container{
+.education-container {
 
     background-color: aliceblue;
     border-radius: 10px;
@@ -53,33 +54,34 @@ main{
     box-shadow: 0 4px 12px black;
 }
 
-.about-container{
+.about-container {
     display: flex;
     gap: 2rem;
 }
 
-.about-container img{
+.about-container img {
     width: 35%;
     border-radius: 8px;
-    box-shadow:2px 0 12px black ;
+    box-shadow: 2px 0 12px black;
 }
 
-.project-container article{
+.project-container article {
     background-color: white;
     margin-bottom: 1rem;
     box-shadow: 0 5px 12px black;
     padding: 10px;
     border-radius: 20px;
 }
-.project-container article:hover{
+
+.project-container article:hover {
     transform: translateY(-5px);
 }
 
-.about-container img:hover{
+.about-container img:hover {
     transform: translateY(-5px);
 }
 
-.description-list{
+.description-list {
     margin-bottom: 1rem;
     background-color: white;
     box-shadow: 0 5px 12px black;
@@ -89,30 +91,53 @@ main{
     padding: 5px;
 }
 
-.description-grid{
+.description-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 
-.description-list dt{
+.description-list dt {
     color: blue;
     margin-bottom: 10px;
 }
 
-.description-list dd{
+.description-list dd {
     margin: 0;
 }
 
-.skills-container .description-list:hover{
+.skills-container .description-list:hover {
     transform: translateY(-5px)
 }
 
-.Find-me-on{
+.Find-me-on {
     text-align: center;
 }
 
-.Find-me-on h2{
+.Find-me-on h2 {
     margin-left: auto;
     margin-right: auto;
 }
+
+@media (max-width:767px){
+    .header-container{
+        flex-direction: column;
+    }
+nav ul{
+    flex-direction: column;
+}
+
+.about-container{
+    flex-direction: column;
+}
+}
+
+@media (min-width:768px) and (max-width:1024px){
+    .header-container{
+        flex-direction: column;
+    }
+.about-container{
+    flex-direction: column;
+}
+}
+
