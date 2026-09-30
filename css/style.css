@@ -29,6 +29,10 @@ nav a:hover {
     color: gold;
 }
 
+form button{
+    background-color: gold;
+}
+
 h1,
 h2 {
     color: blue;
