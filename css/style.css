@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     background-color: blanchedalmond;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -123,6 +127,14 @@ main {
     margin-right: auto;
 }
 
+.education-container{
+    overflow-x: auto;
+}
+
+.education-container table{
+    min-width: 550px;
+}
+
 @media (max-width:767px) {
     .header-container {
         flex-direction: column;
@@ -135,6 +147,7 @@ main {
     .about-container {
         flex-direction: column;
     }
+
 }
 
 @media (min-width:768px) and (max-width:1024px) {
@@ -149,9 +162,8 @@ main {
 
 
 .contact-container {
-    width: 50%
+    width: 100%
 }
-
 .contact-container input,
 .contact-container textarea {
     width: 100%;
