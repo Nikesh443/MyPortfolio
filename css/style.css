@@ -168,3 +168,8 @@ main {
 .contact-container textarea {
     width: 100%;
 }
+
+.t-box{
+    max-width: 250px;
+    min-width: 100px;
+}
