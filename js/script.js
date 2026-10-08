@@ -121,7 +121,6 @@ class ImageSlider {
             }
         });
 
-        // Swipe left or right on a phone.
         let startX = null;
         let startY = null;
 
