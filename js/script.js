@@ -1,5 +1,6 @@
 class ImageSlider {
     constructor(selector) {
+        this.autoPlayDelay = 5000;
         this.slider = document.querySelector(selector);
         this.track = this.slider.querySelector(".slider-track");
         this.slides = Array.from(this.track.children);
@@ -8,6 +9,7 @@ class ImageSlider {
         this.dotsContainer = this.slider.querySelector(".slider-dots");
         this.dots = [];
         this.currentIndex = 0;
+        this.autoPlayTimer = null;
 
         this.init();
     }
@@ -16,6 +18,7 @@ class ImageSlider {
         this.createDots();
         this.bindEvents();
         this.updateSliderPosition();
+        this.startAutoPlay();
     }
 
     updateSliderPosition() {
@@ -79,6 +82,25 @@ class ImageSlider {
         });
     }
 
+    startAutoPlay() {
+        if (this.slides.length < 2 ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+        }
+
+        this.stopAutoPlay();
+        this.autoPlayTimer = window.setInterval(() => {
+            this.nextSlide();
+        }, this.autoPlayDelay);
+    }
+
+    stopAutoPlay() {
+        if (this.autoPlayTimer !== null) {
+            window.clearInterval(this.autoPlayTimer);
+            this.autoPlayTimer = null;
+        }
+    }
+
     bindEvents() {
         this.nextButton.addEventListener("click", () => {
             this.nextSlide();
@@ -132,6 +154,24 @@ class ImageSlider {
 
         this.slider.addEventListener("touchcancel", () => {
             startX = null;
+        });
+
+        this.slider.addEventListener("mouseenter", () => {
+            this.stopAutoPlay();
+        });
+
+        this.slider.addEventListener("mouseleave", () => {
+            this.startAutoPlay();
+        });
+
+        this.slider.addEventListener("focusin", () => {
+            this.stopAutoPlay();
+        });
+
+        this.slider.addEventListener("focusout", (event) => {
+            if (!this.slider.contains(event.relatedTarget)) {
+                this.startAutoPlay();
+            }
         });
     }
 }
